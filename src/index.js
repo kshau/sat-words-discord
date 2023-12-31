@@ -49,23 +49,20 @@ async function sendRandomWord(wordList) {
     await sendWord(selectedWord);
 }
 
-(async () => {
-
-    const wordList = await getWords();
-
+getWords().then(wordList => {
+    
     setInterval(async () => {
 
         const now = new Date();
-
+    
         const hr = now.getHours();
         const min = now.getMinutes();
-
+    
         if (min == 0 && hr % 2 == 0 && hr > 7 && hr < 23) {
             await sendRandomWord(wordList);
         }
-
+    
     }, 60000)
-
-})()
-
-console.log("Words started!");
+    
+    console.log("Words started!");
+})
