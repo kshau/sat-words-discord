@@ -37,6 +37,7 @@ async function sendWord(wordData) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+            content: "@everyone", 
             embeds: [embed]
         }),
     })
@@ -51,8 +52,6 @@ async function sendRandomWord(wordList) {
 (async () => {
 
     const wordList = await getWords();
-
-    await sendRandomWord(wordList);
 
     setInterval(async () => {
 
