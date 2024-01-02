@@ -57,8 +57,10 @@ getWords().then(wordList => {
     
         const hr = now.getHours();
         const min = now.getMinutes();
+
+        console.log(hr, min);
     
-        if (min == 32 && hr % 2 == 0 && hr > 7 && hr < 23) {
+        if (min == 36 && hr % 2 == 0 && hr > 7 && hr < 23) {
             await sendRandomWord(wordList);
         }
     
