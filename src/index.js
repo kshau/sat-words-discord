@@ -8,7 +8,13 @@ async function getWords() {
     const wordsURL = "https://raw.githubusercontent.com/lrojas94/SAT-Words/master/Freevocabulary%20Wordlist/freevocabulary_words.json";
 
     const res = await fetch(wordsURL);
-    const json = await res.json();
+    var json = await res.json();
+
+    for (var i = 0; i <= json.length - 1; i++) {
+        if (!json[i].definition.endsWith(".")) {
+            json.splice(i, 1);
+        }
+    }
 
     return json;
 }
@@ -59,7 +65,7 @@ getWords().then(wordList => {
         const hr = now.getHours();
         const min = now.getMinutes();
     
-        if (min == 41 && hr % 2 == 0 && hr > 7 && hr < 23) {
+        if (min == 0 && hr % 2 == 0 && hr > 7 && hr < 23) {
             await sendRandomWord(wordList);
         }
     
