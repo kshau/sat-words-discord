@@ -31,7 +31,7 @@ async function sendWord(wordData) {
                 value: `\`${word}\``, 
             },  
             {
-                name: "Definiton", 
+                name: "Definition", 
                 value: `\`${definition}\``
             }
         ]
