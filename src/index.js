@@ -43,7 +43,7 @@ async function sendWord(wordData) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            content: `||${word}: ${definition} @everyone||`, 
+            content: `${word} @everyone`, 
             embeds: [embed]
         }),
     })
