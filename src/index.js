@@ -59,13 +59,15 @@ getWords().then(wordList => {
     
     setInterval(async () => {
 
-        var now = new Date();
-        now = new Date(now.getTime() + (-300 * 60 * 1000));
+        const now = new Date();
+
+        const estOffset = -5;
+        const estDate = new Date(now.getTime() + estOffset * 60 * 60 * 1000);
     
-        const hr = now.getHours();
-        const min = now.getMinutes();
+        const estHour = estDate.getUTCHours();
+        const estMinute = estDate.getUTCMinutes();
     
-        if (min == 0 && hr % 2 == 0 && hr > 7 && hr < 23) {
+        if (estHour == 9 && estMinute == 0) {
             await sendRandomWord(wordList);
         }
     
